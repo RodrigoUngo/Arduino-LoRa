@@ -798,7 +798,7 @@ static void txlora () {
     // select LoRa modem (from sleep mode)
     //writeReg(RegOpMode, OPMODE_LORA);
     opmodeLora();
-    //ASSERT((readReg(RegOpMode) & OPMODE_LORA) != 0);
+    ASSERT((readReg(RegOpMode) & OPMODE_LORA) != 0);
 
     // enter standby mode (required for FIFO loading))
     opmode(OPMODE_STANDBY);
@@ -920,7 +920,7 @@ static void rxlate (u4_t nLate) {
 static void rxlora (u1_t rxmode) {
     // select LoRa modem (from sleep mode)
     opmodeLora();
-    //ASSERT((readReg(RegOpMode) & OPMODE_LORA) != 0);
+    ASSERT((readReg(RegOpMode) & OPMODE_LORA) != 0);
     // enter standby mode (warm up))
     opmode(OPMODE_STANDBY);
     // don't use MAC settings at startup
@@ -1161,7 +1161,7 @@ int radio_init () {
 // (buf[0] holds index of next byte to be returned)
 u1_t radio_rand1 () {
     u1_t i = randbuf[0];
-    //ASSERT( i != 0 );
+    ASSERT( i != 0 );
     if( i==16 ) {
         os_aes(AES_ENC, randbuf, 16); // encrypt seed with any key
         i = 0;
