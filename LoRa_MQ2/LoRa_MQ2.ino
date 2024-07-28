@@ -52,17 +52,17 @@
 // Este EUI debe estar en formato little-endian, por lo que es el byte menos significativo
 // primero. Al copiar un EUI del output ttnctl, esto significa invertir
 // los bytes. En TTN se invierten los bytes con la opción lsb.
-static const u1_t PROGMEM APPEUI[8]={ 0x44, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM APPEUI[8]={ 0x33, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
 
 // Esto también debe de estar en formato little endian, ver el comentario anterior.
-static const u1_t PROGMEM DEVEUI[8]={ 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC };
+static const u1_t PROGMEM DEVEUI[8]={ 0xBB, 0xBB, 0xBB, 0xBB, 0xBB, 0xBB, 0xBB, 0xBB };
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 
 // Esta clave debe estar en formato big endian (o, dado que en realidad no es un
 // número pero un bloque de memoria, la endianidad realmente no se aplica). En
 // práctica, una clave tomada de ttnctl se puede copiar tal cual está.
-static const u1_t PROGMEM APPKEY[16] = { 0xEF, 0x62, 0xFF, 0x43, 0x6F, 0xEC, 0xAD, 0xF5, 0x18, 0x2E, 0xE4, 0xFC, 0x64, 0x30, 0xFE, 0xB4 };
+static const u1_t PROGMEM APPKEY[16] = { 0xDC, 0x78, 0xDF, 0xA9, 0x14, 0x88, 0x69, 0xCE, 0x15, 0x19, 0x05, 0x53, 0x30, 0xD9, 0x4A, 0xCB };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
 static osjob_t sendjob;
